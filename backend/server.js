@@ -2,16 +2,16 @@ require('dotenv').config()
 
 const express = require('express')
 const mongoose = require('mongoose')
+const helmet = require('helmet');
 
 const blogspotRoutes = require('./routes/blogspot')
-
 
 //express app 
 const app = express()
 
-// Middleware
-
-app.use(express.json()) // parse incoming requests with JSON    
+app.use(express.json({ limit: '50mb' })) // Increase the limit as needed // parse incoming requests with JSON 
+app.use(helmet()); 
+   
 app.use((req, res, next) => {
     console.log(req.path, req.method)
     next()

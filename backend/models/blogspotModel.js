@@ -18,6 +18,10 @@ const blogpostSchema= new Schema({
     introduction:{
         type:String,
         required: true
+    },
+    file: {
+        type: String, // or whatever type you use to store the file path
+        required: false
     }
 }, {timestamps: true})
 

@@ -1,27 +1,36 @@
 import React from 'react'
+import { useState } from 'react';
+import Modal from './Modal'
+import Form  from "./Form"
 
 function Info() {
+    const [showFormModal, setShowFormModal] = useState(false);
+    const handleWriteNowClick = () => {
+        setShowFormModal(true);
+    };
+
+
   return (
     <div>
-        <div class="flex flex-col w-full bg-[#effffd]" id = 'home'>
-        <header class="relative flex items-center justify-center h-[60vh] bg-content bg-center bg-[url('./Images/Books.jpeg')]">
-          <div class="absolute inset-0 bg-black opacity-20"></div>
-          <div class="text-center z-10">
-            <h1 class="text-4xl font-serif text-white">Acadney</h1>
-            <p class="mt-4 text-lg text-white">Sharing Academic Knowledge</p>
-            <button class="bg-yellow-500 text-white py-2 px-4 rounded-full mt-4 hover:bg-yellow-600">Write Now</button>
+        <div className="flex flex-col w-full bg-[#effffd]" id = 'home'>
+        <header className="relative flex items-center justify-center h-[60vh] bg-content bg-center bg-[url('./Images/Books.jpeg')]">
+          <div className="absolute inset-0 bg-black opacity-20"></div>
+          <div className="text-center z-10">
+            <h1 className="text-4xl font-serif text-white">Acadney</h1>
+            <p className="mt-4 text-lg text-white">Sharing Academic Knowledge</p>
+            <button onClick={handleWriteNowClick} className="bg-yellow-500 text-white py-2 px-4 rounded-full mt-4 hover:bg-yellow-600">Write Now</button>
           </div>
         </header>
         
 
-        <main class="flex flex-col justify-center items-center px-4 py-16">
-          <h2 class="text-3xl font-serif text-blue-800">Turn Your Research into Knowledge</h2>
-          <p class="mt-4 text-lg text-gray-700">Don't let your hard work go to waste. Share your academic papers and help others in your field.</p>
-          <button class="bg-yellow-500 text-white py-2 px-4 rounded-full mt-4 hover:bg-yellow-600">Upload Your Work</button>
+        <main className="flex flex-col justify-center items-center px-4 py-16">
+          <h2 className="text-3xl font-serif text-blue-800">Turn Your Research into Knowledge</h2>
+          <p className="mt-4 text-lg text-gray-700">Don't let your hard work go to waste. Share your academic papers and help others in your field.</p>
+          <button onClick={handleWriteNowClick} className="bg-yellow-500 text-white py-2 px-4 rounded-full mt-4 hover:bg-yellow-600">Upload Your Work</button>
         </main>
 
       </div>
-      <div className='relative flex flex-row w-full h-[40vh] z-2' id ='about'>
+      <div className='relative flex flex-row w-full h-[40vh] z-11' id ='about'>
         <div className='flex flex-col align-top items-center w-full h-full pt-12 bg-gray-300 gap-1'>
           <div className='text-black font-extrabold tracking-widest font-serif'>
             About Us
@@ -33,7 +42,7 @@ function Info() {
         </div>
       </div>
       {/* Search Bar */}
-      <section className="flex justify-center py-8 -mt-14 z-0" id = 'blog'>
+      <section className="flex justify-center py-8 -mt-14 z-20" id = 'blog'>
         <form>
           <input
             type="text"
@@ -42,6 +51,11 @@ function Info() {
           />
           </form>
       </section>
+      {showFormModal ? (
+        <Modal trigger={true} setTrigger={setShowFormModal}>
+            <Form className = ''/>
+        </Modal>
+      ) : ''}
     </div>
   )
 }

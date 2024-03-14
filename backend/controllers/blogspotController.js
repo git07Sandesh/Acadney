@@ -23,17 +23,30 @@ const getBlogpost = async (req, res) => {
 
 
 //create new blog
-const createBlog = async (req,res) => {
-    const {title, author, publicationDate, introduction} = req.body
+const createBlog = async (req, res) => {
+    const { title, author, publicationDate, introduction } = req.body;
+    const file = req.file; // Uploaded file information
+    if (!file) {
+        return res.status(400).json({ error: 'File not uploaded' });
+    }
    
    //adds to db
-    try{
-        const blogpost = Blogpost.create({title, author, publicationDate, introduction})
-        res.status(200).json(blogpost)
-    }catch(error){
-        res.status(400).json({error: error.message})
+    try {
+        const blogpost = new Blogpost({
+            title: title,
+            author: author,
+            publicationDate: publicationDate,
+            introduction: introduction,
+            file: file.path // Save the file path
+        });
+        await blogpost.save();
+        res.status(201).json({ message: 'Blogpost created successfully' });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Internal server error' });
     }
 }
+
 
 // delete a blog
 
