@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/Acadney/static/css/main.5198b393.css",
-    "main.js": "/Acadney/static/js/main.b0697612.js",
-    "static/media/Books.jpeg": "/Acadney/static/media/Books.a8b5ca02be30afb6960b.jpeg",
-    "index.html": "/Acadney/index.html",
-    "main.5198b393.css.map": "/Acadney/static/css/main.5198b393.css.map",
-    "main.b0697612.js.map": "/Acadney/static/js/main.b0697612.js.map"
+    "main.css": "/static/css/main.acdb81b4.css",
+    "main.js": "/static/js/main.b0697612.js",
+    "static/media/Books.jpeg": "/static/media/Books.a8b5ca02be30afb6960b.jpeg",
+    "index.html": "/index.html",
+    "main.acdb81b4.css.map": "/static/css/main.acdb81b4.css.map",
+    "main.b0697612.js.map": "/static/js/main.b0697612.js.map"
   },
   "entrypoints": [
-    "static/css/main.5198b393.css",
+    "static/css/main.acdb81b4.css",
     "static/js/main.b0697612.js"
   ]
 }
